@@ -6,6 +6,7 @@ div .main-container {
 div .main-container .main-box {
     width: 90rem;
     margin: 0 auto;
+    background-color: #FFF;
 }
 
 div .main-container .airJordan {
@@ -41,11 +42,11 @@ div .main-container .airJordan .oferta h2 {
     line-height: 50px;
     font-weight: 700;
     color: #474747;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 
 div .main-container .airJordan .oferta .pSmall {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
     color: #C92071;
 }
@@ -55,4 +56,90 @@ div .main-container .airJordan .oferta p {
     font-weight: 400;
     line-height: 28px;
     color: #474747;
+}
+
+/*  Iniciando Classes Para Coleções em Destaque  */
+
+div .main-container .main-box .colDestaque {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 100px;
+    text-align: left;
+}
+
+div .main-container .main-box .colDestaque .colecoes {
+    display: flex;
+    justify-content: space-between;
+    width: 405px;
+    height: 251px;
+    background-color: #D8E3F2;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+div .main-container .main-box .colDestaque .colecoes .prom {
+    width: 180px;
+    height: 100%;
+    padding: 30px 0 0 20px;
+}
+
+div .main-container .main-box .colDestaque .colecoes .prom p {
+    background-color: #E7FF86;
+    width: 5rem;
+    border-radius: 30px;
+    text-align: center;
+    padding: 0.2rem;
+}
+
+div .main-container .main-box .colDestaque .colecoes .imgDiv {
+    position: relative;
+    width: 242px;
+    height: 251px;
+    overflow: hidden;
+    padding: 60px 0 0 20px;
+    margin-left: 0;
+}
+
+#StarWars {
+    width: 22.2rem;
+    rotate: -20.78deg;
+}
+
+#Adidas {
+    width: 15.62rem;
+    rotate: -10deg;
+    transform: rotateY(180deg);
+}
+
+#HeadPhone {
+    width: 12.5rem;
+    rotate: 30deg;
+}
+
+/* estilizando segundo banner de ofertas */
+
+div .main-container .main-box .iconsDiv {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+}
+div .main-container .main-box .iconsDiv p {
+    font-size: .875rem;
+    color: #474747;
+}
+
+div .main-container .main-box .prodEmAlta {
+    width: 90rem;
+    padding: 0 6.25rem 0 6.25rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 2.5rem;
+}
+
+div .main-container .main-box .prodEmAlta div {
+    width: 292px;
+    height: 439px;
+    border: 1px solid red;
 }
