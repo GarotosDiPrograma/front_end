@@ -1,0 +1,71 @@
+.box-pai{
+  width: 90rem;
+  height: 49.6875rem;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.823);
+
+}
+
+.box-perfil{
+  width: 20.875rem;
+  height: 16.75rem;
+  margin: 5rem 0 0 6.1875rem;
+  background-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+
+}
+.box-perfil hr{
+  margin: 1.25rem 0 0 1.875rem;
+  width: 17.125rem;
+}
+
+/* meu perfil */
+.box-informaçoes{
+  width: 55.625rem;
+  height: 29.125rem;
+  margin: 5rem 0 0 1rem;
+  text-align: left;
+  background-color: white;
+
+}
+
+/* entrar */
+.box-1{
+  width: 51.875rem;
+  height: 1.375rem;
+  margin: 1.875rem 0 0 1.875rem;
+  display: flex;
+}
+
+.box-1 p{
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.box-1 li{
+  margin-left: 40rem;
+}
+
+/* informações pessoais */
+
+.box-info-pessoal{
+  width: 48.625rem;
+  height: 9.5rem;
+  font-size: 0.875rem;
+  line-height: 0.625rem;
+  margin-left: 1.875rem;
+  
+}
+
+.box-informaçoes hr{
+  width: 51.875rem;
+  margin: 1.25rem 0 1.25rem 1.875rem;
+}
+
+.box-p{
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+}
