@@ -1,0 +1,62 @@
+#footer {
+  width: 100%;
+
+}
+
+#footer .box-footer {
+  color: #F5F5F5;
+  width: 90rem;
+  height: 28.375rem;
+  margin: 0 auto;
+  background-color: #1F1F1F;
+}
+
+#footer .box-footer .content {
+  display: flex;
+  justify-content: space-between;
+  padding: 4.5rem 6.25rem 0 6.25rem;
+}
+
+hr {
+  margin: 1.8rem 0;
+  color: #F5F5F5;
+}
+
+.logo-box {
+  width: 19.18rem;
+}
+
+.informacao-box {
+  width: 9rem;
+}
+
+.categorias-box {
+  width: 6.3rem;
+}
+
+.contato-box {
+  width: 14.56rem;
+}
+
+.icon-box {
+  display: flex;
+  gap: 1.8rem;
+}
+
+h3 {
+  padding-bottom: 2rem;
+}
+
+p {
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.box-copy {
+  font-size: .8rem;
+  margin-top: 2.1rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid #f5f5f582;
+  width: 100%;
+  text-align: center;
+}

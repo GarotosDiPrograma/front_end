@@ -1,0 +1,19 @@
+#header {
+  width: 100%;
+}
+
+#header .box-header {
+  background-color: #FFF;
+  display: flex;
+  width: 90rem;
+  height: 12rem;
+  margin: 0 auto;
+  padding: 0 6.25rem;
+}
+
+#header .box-header .box-header-children {
+  display: flex;
+  width: 62rem;
+  height: 8rem;
+  margin-top: 2.125rem;
+}

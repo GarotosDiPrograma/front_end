@@ -1,0 +1,76 @@
+#app {
+  height: 100%;
+}
+
+.swiper {
+  width: 100%;
+  height: 40rem;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #F5F5F5;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Estilizando divs */
+
+div .carousel {
+  display: flex;
+  justify-content: space-between;
+  width: 81.4rem;
+  height: 24.8rem;
+}
+
+div .carousel .oferta {
+  text-align: left;
+  width: 31.8rem;
+  height: 100%;
+  margin-left: 2rem;
+}
+
+div .carousel .oferta h1 {
+  font-size: 4rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  line-height: 4rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+
+div .carousel .oferta .pYellow {
+  font-family: 'Inter', sans-serif;
+  color: #F6AA1C;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+div .carousel .oferta p {
+  font-family: 'Inter', sans-serif;
+  color: #474747;
+  line-height: 2.12rem;
+}
+
+div .carousel .divTenis img {
+  width: 40.8rem;
+  height: 21.9rem;
+  rotate: -19.34deg;
+  margin-right: 5rem;
+}

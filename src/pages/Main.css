@@ -1,0 +1,58 @@
+div .main-container {
+    width: 100%;
+    text-align: center;
+}
+
+div .main-container .main-box {
+    width: 90rem;
+    margin: 0 auto;
+}
+
+div .main-container .airJordan {
+    display: flex;
+    width: 100%;
+    background-color: #FFF;
+}
+
+div .main-container .airJordan .circulo {
+    width: 466px;
+    height: 466px;
+    border-radius: 50%;
+    background-image: linear-gradient(#4400ff27, #FFF 50%);
+    margin: 87px 0 0 129px;
+}
+
+div .main-container .airJordan img {
+    position: absolute;
+    width: 573px;
+    height: 330px;
+    margin: 115px 0 0 52px;
+}
+
+div .main-container .airJordan .oferta {
+    width: 589px;
+    height: 341px;
+    margin: auto 106px;
+    text-align: left;
+}
+
+div .main-container .airJordan .oferta h2 {
+    font-size: 48px;
+    line-height: 50px;
+    font-weight: 700;
+    color: #474747;
+    margin-bottom: 20px;
+}
+
+div .main-container .airJordan .oferta .pSmall {
+    font-size: 14px;
+    font-weight: 700;
+    color: #C92071;
+}
+
+div .main-container .airJordan .oferta p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 28px;
+    color: #474747;
+}

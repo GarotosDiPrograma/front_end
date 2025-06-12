@@ -1,0 +1,10 @@
+.logo {
+  display: flex;
+  width: 15.813rem;
+  height: 2.75rem;
+  align-items: center;
+  gap: .5rem;
+  font-size: 2.275rem;
+  font-weight: 600;
+  color: #C92071;
+}

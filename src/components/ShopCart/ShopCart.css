@@ -1,0 +1,29 @@
+.box-shop-cart {
+  display: flex;
+  justify-content: end;
+  margin: 2.938rem 0 0 4.375rem;
+  width: 2.06rem;
+  height: 1.813rem;
+}
+
+.box-shop-cart a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: .313rem .56rem 0 0;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.box-shop-cart span {
+  width: 1.06rem;
+  height: 1.06rem;
+  position: absolute;
+  background-color: #c92071;
+  border-radius: 50%;
+  font-size: .75rem;
+  color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
