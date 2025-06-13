@@ -48,7 +48,7 @@ export const MeusPedidos = () => {
                       margin={'1.25rem 0 0 1.875rem'}
                       value={'Minhas Informações'}
                       color={'#474747'}
-                      to={'/MinhasInformacoes'}
+                      to={'/paina'}
                     />
                   </li>
                   <hr />
@@ -62,7 +62,7 @@ export const MeusPedidos = () => {
                   </li>
             
     </div>
-
+{/*  add linha */}
     <div className='box-informaçoes'>
       <div className='box-1'>
         <p>Minhas Informações</p>
