@@ -7,8 +7,10 @@ import { Ofertas } from '../pages/Ofertas';
 import { Footer } from './Footer/Footer';
 import { NaoEncontrado } from '../pages/NaoEncontrado';
 
+
 export const App = () => {
   return (
+    
     <BrowserRouter>
       <Header />
       <Routes>

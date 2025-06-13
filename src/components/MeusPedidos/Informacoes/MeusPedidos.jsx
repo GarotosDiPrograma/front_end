@@ -1,19 +1,36 @@
 import './MeusPedidos.css'
-import { UseFul } from '../UseFul/UseFul';
+import { motion } from 'framer-motion';
+import { UseFul } from '../../UseFul/UseFul';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 export const MeusPedidos = () => {
 
   return(
+    <motion.div
+    
+      initial={{opacity: 0, x:40}}
+      animate={{opacity: 1, x: 0}}
+      transition={{duration: 0.9}}
+      
+      >
+
+      
+
 <div className="box-pai">
     <div className='box-perfil'>
-       <li>
+       
+       
+      
+            
+      
+                  <li>
                     <UseFul
                       margin={'1.875rem 0 0 1.875rem'}
                       value={'Meu Perfil'}
                       color={'#474747'}
                       fontWeight={'900'}
-                      to={'#'}
+                      to={'/MeuPerfil'}
                     />
                   </li>
                   <hr />
@@ -22,7 +39,7 @@ export const MeusPedidos = () => {
                       margin={'1.25rem 0 0 1.875rem'}
                       value={'Meus pedidos'}
                       color={'#474747'}
-                      to={'#'}
+                      to={'/MeusPedidos'}
                     />
                   </li>
                   <hr />
@@ -30,9 +47,8 @@ export const MeusPedidos = () => {
                     <UseFul
                       margin={'1.25rem 0 0 1.875rem'}
                       value={'Minhas Informações'}
-                      color={'#C92071'}
-                      fontWeight={"900"}
-                      to={'#'}
+                      color={'#474747'}
+                      to={'/MinhasInformacoes'}
                     />
                   </li>
                   <hr />
@@ -41,9 +57,10 @@ export const MeusPedidos = () => {
                       margin={'1.25rem 0 0 1.875rem'}
                       value={'Metodos de Pagamentos'}
                       color={'#474747'}
-                      to={'#'}
+                      to={'/MetodosDePagamentos'}
                     />
                   </li>
+            
     </div>
 
     <div className='box-informaçoes'>
@@ -80,6 +97,7 @@ export const MeusPedidos = () => {
 
     </div>
 </div>
+</motion.div>
   )
 
 
