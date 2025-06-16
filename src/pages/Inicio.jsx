@@ -9,15 +9,15 @@ import './Main.css'
 export const Inicio = () => {
   return (
     <div className="main-container">
+      {/* Iniciando Carrossel  */}
+
+      <Carousel />
+
       <div className='main-box'>
-
-        {/* Iniciando Carrossel  */}
-
-        <Carousel />
 
         {/* Iniciando Coleções em Destaque  */}
 
-        <h3 style={{ textAlign: 'left', margin: '2rem 0 0 6.5rem', color: '#474747' }}>Coleções em Destaque</h3>
+        <h2 style={{ textAlign: 'left', margin: '0 0 1rem 6.5rem', color: '#474747' }}>Coleções em destaque</h2>
         <div className='colDestaque'>
           <div className='colecoes'>
             <div className='prom'>
@@ -89,7 +89,7 @@ export const Inicio = () => {
 
         {/* Iniciando Produtos em Alta */}
 
-        <Ofertas/>
+        <Ofertas />
 
         {/* Iniciando Oferta Especial */}
 
