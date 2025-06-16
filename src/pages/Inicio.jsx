@@ -2,6 +2,8 @@ import { Carousel } from '../components/Carousel/Carousel';
 
 import { Button } from '../components/Button/Button';
 
+import { Ofertas } from '../components/Ofertas/Ofertas';
+
 import './Main.css'
 
 export const Inicio = () => {
@@ -87,16 +89,7 @@ export const Inicio = () => {
 
         {/* Iniciando Produtos em Alta */}
 
-        <div className='prodEmAlta'>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        <Ofertas/>
 
         {/* Iniciando Oferta Especial */}
 

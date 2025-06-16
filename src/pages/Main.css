@@ -6,7 +6,7 @@ div .main-container {
 div .main-container .main-box {
     width: 90rem;
     margin: 0 auto;
-    background-color: #FFF;
+    background-color: rgb(246, 246, 246);
 }
 
 div .main-container .airJordan {
@@ -125,21 +125,11 @@ div .main-container .main-box .iconsDiv {
     gap: 3rem;
     width: 100%;
 }
+
 div .main-container .main-box .iconsDiv p {
     font-size: .875rem;
     color: #474747;
 }
 
-div .main-container .main-box .prodEmAlta {
-    width: 90rem;
-    padding: 0 6.25rem 0 6.25rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    row-gap: 2.5rem;
-}
 
-div .main-container .main-box .prodEmAlta div {
-    width: 292px;
-    height: 439px;
-    border: 1px solid red;
-}
+

@@ -1,0 +1,43 @@
+div .Produtos h2 {
+  color: #474747;
+  margin-bottom: 1rem;
+}
+
+div .Produtos a {
+  color: #C92071;
+  padding-right: 1.8rem;
+}
+
+.Produtos {
+  width: 90rem;
+  padding: 0 6.25rem 0 6.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div .prodEmAlta {
+  width: 90rem;
+  padding: 0 6.25rem 0 6.25rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 2.5rem;
+}
+
+div .prodEmAlta section {
+  width: 18.25rem;
+  height: 27.437rem;
+}
+
+div .prodEmAlta section div {
+  width: 18.25rem;
+  height: 20.06rem;
+  background-color: white;
+}
+
+#tenisAlta {
+  margin: 4.5rem 2rem 0 0;
+  position: relative;
+  width: 248px;
+  rotate: -30deg;
+}
