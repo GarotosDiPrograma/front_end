@@ -1,13 +1,12 @@
 .produtos-container {
   display: flex;
-  padding: 3rem 2rem;
-  gap: 2rem;
+  padding: 2rem 1rem;        
   margin: 0 auto;
-  background-color: #f2f2f2;
+  max-width: 90rem;         
+  background-color: #ffffff;
+  gap: 2rem;
   font-family: 'Arial', sans-serif;
 }
-
-
 
 
 .filtros {
@@ -21,7 +20,11 @@
   font-size: 1.125rem;
   margin-bottom: 1rem;
   color: #474747;
+  text-align: left; 
+  border-bottom: 1px solid #C92071; 
+  padding-bottom: 0.5rem; 
 }
+
 
 .filtros h4 {
   font-size: 0.9375rem;
@@ -29,8 +32,11 @@
   margin-bottom: 0.5rem;
   font-weight: bold;
   color: #474747;
-
+  text-align: left; 
+  margin-left: 0;
+  padding-left: 0;
 }
+
 
 
 .filtros label {
@@ -113,16 +119,22 @@
 .topo-listagem h2 {
   font-size: 1.125rem;
   font-weight: 500;
+  color: #474747;
 }
-
 
 .topo-listagem select {
-  padding: 0.375rem 0.75rem;
+  padding: 0.5rem 1rem;
   border-radius: 0.25rem;
-  border: 1px solid #aaa;
-  font-size: 0.875rem;
+  border: 0.0625rem solid #aaa;  
+  font-size: 1rem;
+  width: 17rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.topo-listagem select:hover {
+  border: 0.125rem solid #C92071;
+  box-shadow: none;
+}
 
 .produtos-grid {
   display: grid;
@@ -133,7 +145,7 @@
 
 .produto-card {
   position: relative;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 1rem;
   box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.05);
   padding: 1rem;
@@ -209,7 +221,7 @@
 
 
 .produto-card strong {
-  color: #000;
+  color: #474747;
   font-weight: bold;
   font-size: 0.9375rem;
 }
