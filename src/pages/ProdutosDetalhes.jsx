@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import './ProdutosDetalhes.css';
 
-export const ProdutoDetalhes = () => {
+export const ProdutosDetalhes = () => {
   const { id } = useParams();
   const [tamanhoSelecionado, setTamanhoSelecionado] = useState('');
   const [corSelecionada, setCorSelecionada] = useState('');
@@ -24,10 +24,10 @@ export const ProdutoDetalhes = () => {
       { nome: 'Amarelo', hex: '#ffff00' }
     ],
     imagens: [
-      "/../../../assets/nike-red.png",
-      "/../../../assets/nike-green.png",
-      "/../../../assets/nike-gray.png",
-      "/../../../assets/nike-yellow.png"
+      "/assets/nike-red.png",
+      "/assets/nike-green.png",
+      "/assets/nike-gray.png",
+      "/assets/nike-yellow.png"
     ]
   };
 
@@ -37,32 +37,31 @@ export const ProdutoDetalhes = () => {
       preco: 100.00,
       precoAntigo: 200.00,
       desconto: "30% OFF",
-      imagem: "/../../../public/K-SWISS.svg"
+      imagem: "/K-SWISS.svg"
     },
     {
       nome: "K-Swiss V8 - Masculino",
       preco: 100.00,
       precoAntigo: 200.00,
       desconto: "30% OFF",
-      imagem: "/../../../public/K-SWISS.svg"
+      imagem: "/K-SWISS.svg"
     },
     {
       nome: "K-Swiss V8 - Masculino",
       preco: 100.00,
       precoAntigo: 200.00,
-      imagem: "/../../../public/K-SWISS.svg"
+      imagem: "/K-SWISS.svg"
     },
     {
       nome: "K-Swiss V8 - Masculino",
       preco: 100.00,
       precoAntigo: 200.00,
-      imagem: "/../../../public/K-SWISS.svg"
+      imagem: "/K-SWISS.svg"
     }
   ];
 
   return (
     <div className="produto-detalhes-container">
-      {}
       <nav className="breadcrumb">
         <a href="/">Home</a> / <a href="/produtos">Produtos</a> / <a href="/produtos">Tênis</a> / <a href="/produtos">Nike</a> / <span>{produto.nome}</span>
       </nav>
@@ -72,11 +71,23 @@ export const ProdutoDetalhes = () => {
         {/* Galeria de Imagens */}
         <div className="produto-galeria">
           <div className="imagem-principal">
-            <button className="nav-btn prev" onClick={() => setImagemAtual(imagemAtual > 0 ? imagemAtual - 1 : produto.imagens.length - 1)}>
+            <button 
+              className="nav-btn prev" 
+              onClick={() => setImagemAtual(imagemAtual > 0 ? imagemAtual - 1 : produto.imagens.length - 1)}
+            >
               ‹
             </button>
-            <img src={produto.imagens[imagemAtual]} alt={produto.nome} />
-            <button className="nav-btn next" onClick={() => setImagemAtual(imagemAtual < produto.imagens.length - 1 ? imagemAtual + 1 : 0)}>
+            <img 
+              src={produto.imagens[imagemAtual]} 
+              alt={produto.nome}
+              onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/400x300?text=Imagem+não+encontrada';
+              }}
+            />
+            <button 
+              className="nav-btn next" 
+              onClick={() => setImagemAtual(imagemAtual < produto.imagens.length - 1 ? imagemAtual + 1 : 0)}
+            >
               ›
             </button>
           </div>
@@ -88,13 +99,19 @@ export const ProdutoDetalhes = () => {
                 className={`miniatura ${index === imagemAtual ? 'ativa' : ''}`}
                 onClick={() => setImagemAtual(index)}
               >
-                <img src={imagem} alt={`${produto.nome} ${index + 1}`} />
+                <img 
+                  src={imagem} 
+                  alt={`${produto.nome} ${index + 1}`}
+                  onError={(e) => {
+                    e.target.src = 'https://via.placeholder.com/80x60?text=Img';
+                  }}
+                />
               </div>
             ))}
           </div>
         </div>
 
-        {}
+        {/* Informações do Produto */}
         <div className="produto-info">
           <h1>{produto.nome}</h1>
           <p className="categoria">{produto.categoria}</p>
@@ -102,7 +119,7 @@ export const ProdutoDetalhes = () => {
           <div className="avaliacao">
             <div className="estrelas">
               {[...Array(5)].map((_, i) => (
-                <span key={i} className="estrela">★</span>
+                <span key={i} className="estrela">⭐</span>
               ))}
               <span className="nota">{produto.avaliacao}</span>
             </div>
@@ -152,7 +169,7 @@ export const ProdutoDetalhes = () => {
         </div>
       </div>
 
-      {}
+      {/* Produtos Relacionados */}
       <section className="produtos-relacionados">
         <div className="secao-header">
           <h2>Produtos Relacionados</h2>
@@ -163,7 +180,13 @@ export const ProdutoDetalhes = () => {
           {produtosRelacionados.map((produto, index) => (
             <div key={index} className="produto-relacionado">
               {produto.desconto && <span className="desconto-badge">{produto.desconto}</span>}
-              <img src={produto.imagem} alt={produto.nome} />
+              <img 
+                src={produto.imagem} 
+                alt={produto.nome}
+                onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/200x150?text=Produto';
+                }}
+              />
               <p className="categoria">Tênis</p>
               <h3>{produto.nome}</h3>
               <div className="preco-relacionado">
