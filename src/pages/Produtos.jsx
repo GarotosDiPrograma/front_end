@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Produtos.css';
 import './Main.css';
 
@@ -51,13 +52,24 @@ export const Produtos = () => {
         </div>
 
         <div className="produtos-grid">
-          {[...Array(15)].map((_, i) => (
+          {[...Array(16)].map((_, i) => (
             <div className="produto-card" key={i}>
-              <span className="desconto">50% OFF</span>
-              <img src="/../../../public/K-SWISS.svg" alt="Tênis" />
-              <p className="categoria">Tênis</p>
-              <h3>K-Swiss V8 - Masculino</h3>
-              <p><s>R$ 200,00</s> <strong>R$ 100,00</strong></p>
+              {}
+              {i < 2 && <span className="desconto">50% OFF</span>}
+              
+              {}
+              <Link to={`/produto/${i + 1}`} className="produto-link">
+               <img src="/K-SWISS.svg" alt="Tênis"/>
+                <p className="categoria">Tênis</p>
+                <h3>K-Swiss V8 - Masculino</h3>
+                
+                {}
+                {i < 2 ? (
+                  <p><s>R$ 200,00</s> <strong>R$ 100,00</strong></p>
+                ) : (
+                  <p><strong>R$ 200,00</strong></p>
+                )}
+              </Link>
             </div>
           ))}
         </div>
