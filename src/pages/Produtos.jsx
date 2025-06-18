@@ -1,9 +1,10 @@
 
 import './Main.css'
+import './Produtos.css'
 
 export const Produtos = () => {
   return (
-    <div className="main-container produtos-container">
+    <div className="produtos-container">
       <aside className="filtros">
         <h3>Filtrar por</h3>
 
