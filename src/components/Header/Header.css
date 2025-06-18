@@ -17,3 +17,7 @@
   height: 8rem;
   margin-top: 2.125rem;
 }
+
+.active {
+  border-bottom: 2px solid #C92071;
+}
