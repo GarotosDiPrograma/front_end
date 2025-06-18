@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './ProdutosDetalhes.css';
 
 export const ProdutosDetalhes = () => {
@@ -18,16 +18,16 @@ export const ProdutosDetalhes = () => {
     descricao: "O Tênis K-Swiss V8 Masculino é ideal para quem busca performance e estilo. Com um design moderno e materiais de alta qualidade, oferece conforto durante todo o dia. A sola de borracha garante aderência e estabilidade, enquanto o cabedal proporciona ventilação adequada para os pés.",
     tamanhos: [39, 40, 41, 42, 43],
     cores: [
-      { nome: 'Vermelho', hex: '#ff0000' },
-      { nome: 'Verde', hex: '#00ff00' },
+      { nome: 'Amarelo', hex: '#ff8c00' },
       { nome: 'Cinza', hex: '#808080' },
-      { nome: 'Amarelo', hex: '#ffff00' }
+      { nome: 'Verde', hex: '#228b22' },
+      { nome: 'Vermelho', hex: '#dc143c' }
     ],
     imagens: [
-      "/assets/nike-red.png",
-      "/assets/nike-green.png",
-      "/assets/nike-gray.png",
-      "/assets/nike-yellow.png"
+      "/nike-yellow.png",
+      "/nike-gray.png", 
+      "/nike-green.png",
+      "/nike-red.png"
     ]
   };
 
@@ -60,20 +60,51 @@ export const ProdutosDetalhes = () => {
     }
   ];
 
+  const navegarImagem = (direcao) => {
+    let novoIndice;
+    if (direcao === 'prev') {
+      novoIndice = imagemAtual > 0 ? imagemAtual - 1 : produto.imagens.length - 1;
+    } else {
+      novoIndice = imagemAtual < produto.imagens.length - 1 ? imagemAtual + 1 : 0;
+    }
+    
+    setImagemAtual(novoIndice);
+    setCorSelecionada(produto.cores[novoIndice].nome);
+  };
+
+  const selecionarCor = (cor, index) => {
+    setCorSelecionada(cor);
+    setImagemAtual(index);
+  };
+
+
+  const selecionarImagem = (index) => {
+    setImagemAtual(index);
+    setCorSelecionada(produto.cores[index].nome);
+  };
+
+
+  useEffect(() => {
+    if (!corSelecionada && produto.cores.length > 0) {
+      setCorSelecionada(produto.cores[0].nome);
+    }
+  }, []);
+
+  const corAtual = produto.cores[imagemAtual]?.hex || '#C92071';
+
   return (
     <div className="produto-detalhes-container">
       <nav className="breadcrumb">
         <a href="/">Home</a> / <a href="/produtos">Produtos</a> / <a href="/produtos">Tênis</a> / <a href="/produtos">Nike</a> / <span>{produto.nome}</span>
       </nav>
 
-      {/* Conteúdo Principal */}
       <div className="produto-content">
-        {/* Galeria de Imagens */}
         <div className="produto-galeria">
           <div className="imagem-principal">
             <button 
               className="nav-btn prev" 
-              onClick={() => setImagemAtual(imagemAtual > 0 ? imagemAtual - 1 : produto.imagens.length - 1)}
+              onClick={() => navegarImagem('prev')}
+              style={{ backgroundColor: `${corAtual}20`, borderColor: corAtual, color: corAtual }}
             >
               ‹
             </button>
@@ -86,7 +117,8 @@ export const ProdutosDetalhes = () => {
             />
             <button 
               className="nav-btn next" 
-              onClick={() => setImagemAtual(imagemAtual < produto.imagens.length - 1 ? imagemAtual + 1 : 0)}
+              onClick={() => navegarImagem('next')}
+              style={{ backgroundColor: `${corAtual}20`, borderColor: corAtual, color: corAtual }}
             >
               ›
             </button>
@@ -97,7 +129,8 @@ export const ProdutosDetalhes = () => {
               <div
                 key={index}
                 className={`miniatura ${index === imagemAtual ? 'ativa' : ''}`}
-                onClick={() => setImagemAtual(index)}
+                onClick={() => selecionarImagem(index)}
+                style={{ borderColor: index === imagemAtual ? produto.cores[index]?.hex : 'transparent' }}
               >
                 <img 
                   src={imagem} 
@@ -111,7 +144,6 @@ export const ProdutosDetalhes = () => {
           </div>
         </div>
 
-        {/* Informações do Produto */}
         <div className="produto-info">
           <h1>{produto.nome}</h1>
           <p className="categoria">{produto.categoria}</p>
@@ -119,7 +151,7 @@ export const ProdutosDetalhes = () => {
           <div className="avaliacao">
             <div className="estrelas">
               {[...Array(5)].map((_, i) => (
-                <span key={i} className="estrela">⭐</span>
+                <span key={i} className="estrela">★</span>
               ))}
               <span className="nota">{produto.avaliacao}</span>
             </div>
@@ -157,7 +189,7 @@ export const ProdutosDetalhes = () => {
                     key={index}
                     className={`cor-btn ${corSelecionada === cor.nome ? 'selecionado' : ''}`}
                     style={{ backgroundColor: cor.hex }}
-                    onClick={() => setCorSelecionada(cor.nome)}
+                    onClick={() => selecionarCor(cor.nome, index)}
                     title={cor.nome}
                   ></button>
                 ))}
@@ -169,7 +201,6 @@ export const ProdutosDetalhes = () => {
         </div>
       </div>
 
-      {/* Produtos Relacionados */}
       <section className="produtos-relacionados">
         <div className="secao-header">
           <h2>Produtos Relacionados</h2>
