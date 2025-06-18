@@ -1,6 +1,4 @@
 
-import './Produtos.css'
-
 import './Main.css'
 
 export const Produtos = () => {
@@ -66,4 +64,4 @@ export const Produtos = () => {
       </main>
     </div>
   );
-}
+};
