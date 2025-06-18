@@ -1,0 +1,121 @@
+
+
+.box-pai {
+  width: 90rem;
+  height: 49.6875rem;
+  border: 1px solid rgba(255, 0, 0, 0);
+  background-color: rgba(193, 86, 86, 0.849);
+  
+
+     
+   
+}
+
+.box-links {
+  width: 20.875rem;
+  height: 16.75rem;
+  margin: 5rem 0 0 6.1875rem;
+  text-align: left;
+  background-color: rgb(202, 63, 63);
+}
+.box-links hr {
+  width: 17.125rem;
+  margin: 0 0 1.25rem 0;
+  
+}
+
+.nav {
+  margin-left: 1.875rem;
+ 
+}
+
+.box-center {
+  background-color: white;
+  width: 55.625rem;
+  height: 29.125rem;
+  margin: 5rem 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.box-titulo {
+  width: 51.875rem;
+  height: 1.375rem;
+ 
+  margin: 1.875rem 0 0 1.875rem;
+  display: flex;
+  
+  
+}
+
+.box-titulo h4{
+ text-align: left;
+}
+
+.box-titulo a {
+ margin: 0 0 0 41rem;
+color: #474747;
+
+}
+
+
+.box-pedidos-itens {
+  width: 51.875rem;
+  height: 3.625rem;
+
+  margin: 0 0 0 1.875rem;
+  display: flex;
+}
+
+.box-pedidos-itens-logo {
+  width: 4.44875rem;
+  height: 3.625rem;
+
+  background-color: #E2E3FF;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+}
+
+.box-pedidos-descricao {
+  width: 26.3125rem;
+  height: 3.625rem;
+ 
+  margin: 0 0 0 1.25rem;
+  text-align: left;
+
+}
+
+.box-pedidos-status {
+  width: 10rem;
+  height: 3.625rem;
+
+  margin: 0 0 0 16rem;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.box-pedidos-descricao h4{
+  margin: 0 0 0 0;
+}
+.box-pedidos-descricao p {
+   margin: 0.3125rem 0 .5rem 0;
+}
+
+.box-pedidos-status p {
+  margin: .1rem 0 0 0;
+  font-weight: 500;
+
+}
+
+.box-center hr {
+  margin: 1.1875rem 0 1.1875rem 1.875rem;
+  width: 51.875rem;
+}
+
+ 
