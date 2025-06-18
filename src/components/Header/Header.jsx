@@ -23,7 +23,7 @@ export const Header = () => {
               src={'../../../public/search.svg'}
             />
             <UseFul
-              href={'#'}
+              to={'/cadastrese'}
               value={'Cadastre-se'}
               margin={'1.2rem 0 0 0'}
               color={'#474747'}

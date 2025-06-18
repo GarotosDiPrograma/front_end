@@ -6,6 +6,7 @@ import { Pedidos } from '../pages/Pedidos';
 import { Ofertas } from '../pages/Ofertas';
 import { Footer } from './Footer/Footer';
 import { NaoEncontrado } from '../pages/NaoEncontrado';
+import { MinhasInfor } from './Mpedidos/MinhasInfor';
 
 export const App = () => {
   return (
@@ -17,6 +18,8 @@ export const App = () => {
         <Route path='pedidos' element={<Pedidos />} />
         <Route path='ofertas' element={<Ofertas />} />
         <Route path='*' element={<NaoEncontrado />} />
+        <Route path='MinhasInfor' element={<MinhasInfor />} />
+         
       </Routes>
       <Footer />
     </BrowserRouter>
