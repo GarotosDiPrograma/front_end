@@ -41,7 +41,6 @@
 
 .imagem-principal {
   position: relative;
-  background: linear-gradient(135deg, #ff6b6b, #feca57);
   border-radius: 1rem;
   padding: 2rem;
   display: flex;
@@ -49,6 +48,7 @@
   justify-content: center;
   min-height: 400px;
 }
+
 
 .imagem-principal img {
   max-width: 100%;
@@ -323,9 +323,9 @@
 
 .produto-relacionado img {
   width: 100%;
-  height: 120px;
+  height: 200px;
   object-fit: contain;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .produto-relacionado .categoria {
@@ -347,6 +347,7 @@
 .preco-relacionado s {
   color: #999;
   margin-right: 0.5rem;
+  text-decoration: line-through;
 }
 
 .preco-relacionado strong {

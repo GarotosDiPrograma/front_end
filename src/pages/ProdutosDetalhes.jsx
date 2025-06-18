@@ -25,7 +25,7 @@ export const ProdutosDetalhes = () => {
     ],
     imagens: [
       "/nike-yellow.png",
-      "/nike-gray.png", 
+      "/nike-gray.png",
       "/nike-green.png",
       "/nike-red.png"
     ]
@@ -36,26 +36,24 @@ export const ProdutosDetalhes = () => {
       nome: "K-Swiss V8 - Masculino",
       preco: 100.00,
       precoAntigo: 200.00,
-      desconto: "30% OFF",
+      desconto: "50% OFF",
       imagem: "/K-SWISS.svg"
     },
     {
       nome: "K-Swiss V8 - Masculino",
       preco: 100.00,
       precoAntigo: 200.00,
-      desconto: "30% OFF",
+      desconto: "50% OFF",
       imagem: "/K-SWISS.svg"
     },
     {
       nome: "K-Swiss V8 - Masculino",
-      preco: 100.00,
-      precoAntigo: 200.00,
+      preco: 200.00,
       imagem: "/K-SWISS.svg"
     },
     {
       nome: "K-Swiss V8 - Masculino",
-      preco: 100.00,
-      precoAntigo: 200.00,
+      preco: 200.00,
       imagem: "/K-SWISS.svg"
     }
   ];
@@ -67,7 +65,7 @@ export const ProdutosDetalhes = () => {
     } else {
       novoIndice = imagemAtual < produto.imagens.length - 1 ? imagemAtual + 1 : 0;
     }
-    
+
     setImagemAtual(novoIndice);
     setCorSelecionada(produto.cores[novoIndice].nome);
   };
@@ -77,12 +75,10 @@ export const ProdutosDetalhes = () => {
     setImagemAtual(index);
   };
 
-
   const selecionarImagem = (index) => {
     setImagemAtual(index);
     setCorSelecionada(produto.cores[index].nome);
   };
-
 
   useEffect(() => {
     if (!corSelecionada && produto.cores.length > 0) {
@@ -100,30 +96,33 @@ export const ProdutosDetalhes = () => {
 
       <div className="produto-content">
         <div className="produto-galeria">
-          <div className="imagem-principal">
-            <button 
-              className="nav-btn prev" 
+          <div
+            className="imagem-principal"
+            style={{ backgroundColor: `${corAtual}20` }}
+          >
+            <button
+              className="nav-btn prev"
               onClick={() => navegarImagem('prev')}
               style={{ backgroundColor: `${corAtual}20`, borderColor: corAtual, color: corAtual }}
             >
               ‹
             </button>
-            <img 
-              src={produto.imagens[imagemAtual]} 
+            <img
+              src={produto.imagens[imagemAtual]}
               alt={produto.nome}
               onError={(e) => {
                 e.target.src = 'https://via.placeholder.com/400x300?text=Imagem+não+encontrada';
               }}
             />
-            <button 
-              className="nav-btn next" 
+            <button
+              className="nav-btn next"
               onClick={() => navegarImagem('next')}
               style={{ backgroundColor: `${corAtual}20`, borderColor: corAtual, color: corAtual }}
             >
               ›
             </button>
           </div>
-          
+
           <div className="miniaturas">
             {produto.imagens.map((imagem, index) => (
               <div
@@ -132,8 +131,8 @@ export const ProdutosDetalhes = () => {
                 onClick={() => selecionarImagem(index)}
                 style={{ borderColor: index === imagemAtual ? produto.cores[index]?.hex : 'transparent' }}
               >
-                <img 
-                  src={imagem} 
+                <img
+                  src={imagem}
                   alt={`${produto.nome} ${index + 1}`}
                   onError={(e) => {
                     e.target.src = 'https://via.placeholder.com/80x60?text=Img';
@@ -147,7 +146,7 @@ export const ProdutosDetalhes = () => {
         <div className="produto-info">
           <h1>{produto.nome}</h1>
           <p className="categoria">{produto.categoria}</p>
-          
+
           <div className="avaliacao">
             <div className="estrelas">
               {[...Array(5)].map((_, i) => (
@@ -206,13 +205,13 @@ export const ProdutosDetalhes = () => {
           <h2>Produtos Relacionados</h2>
           <a href="/produtos" className="ver-todos">Ver todos →</a>
         </div>
-        
+
         <div className="produtos-relacionados-grid">
           {produtosRelacionados.map((produto, index) => (
             <div key={index} className="produto-relacionado">
               {produto.desconto && <span className="desconto-badge">{produto.desconto}</span>}
-              <img 
-                src={produto.imagem} 
+              <img
+                src={produto.imagem}
                 alt={produto.nome}
                 onError={(e) => {
                   e.target.src = 'https://via.placeholder.com/200x150?text=Produto';
