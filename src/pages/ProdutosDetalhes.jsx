@@ -2,20 +2,24 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './ProdutosDetalhes.css';
 
+
 export const ProdutosDetalhes = () => {
   const { id } = useParams();
   const [tamanhoSelecionado, setTamanhoSelecionado] = useState('');
   const [corSelecionada, setCorSelecionada] = useState('');
   const [imagemAtual, setImagemAtual] = useState(0);
 
+  const { adicionarAoCarrinho } = useCart();
+
   const produto = {
     nome: "Tênis Nike Revolution 6 Next Nature Masculino",
     categoria: "Tênis",
-    preco: 219.00,
-    precoAntigo: 300.00,
+    preco: 219.0,
+    precoAntigo: 300.0,
     avaliacao: 5.0,
     numeroAvaliacoes: 90,
-    descricao: "O Tênis K-Swiss V8 Masculino é ideal para quem busca performance e estilo. Com um design moderno e materiais de alta qualidade, oferece conforto durante todo o dia. A sola de borracha garante aderência e estabilidade, enquanto o cabedal proporciona ventilação adequada para os pés.",
+    descricao:
+      "O Tênis K-Swiss V8 Masculino é ideal para quem busca performance e estilo. Com um design moderno e materiais de alta qualidade, oferece conforto durante todo o dia. A sola de borracha garante aderência e estabilidade, enquanto o cabedal proporciona ventilação adequada para os pés.",
     tamanhos: [39, 40, 41, 42, 43],
     cores: [
       { nome: 'Amarelo', hex: '#ff8c00' },
@@ -31,33 +35,6 @@ export const ProdutosDetalhes = () => {
     ]
   };
 
-  const produtosRelacionados = [
-    {
-      nome: "K-Swiss V8 - Masculino",
-      preco: 100.00,
-      precoAntigo: 200.00,
-      desconto: "50% OFF",
-      imagem: "/K-SWISS.svg"
-    },
-    {
-      nome: "K-Swiss V8 - Masculino",
-      preco: 100.00,
-      precoAntigo: 200.00,
-      desconto: "50% OFF",
-      imagem: "/K-SWISS.svg"
-    },
-    {
-      nome: "K-Swiss V8 - Masculino",
-      preco: 200.00,
-      imagem: "/K-SWISS.svg"
-    },
-    {
-      nome: "K-Swiss V8 - Masculino",
-      preco: 200.00,
-      imagem: "/K-SWISS.svg"
-    }
-  ];
-
   const navegarImagem = (direcao) => {
     let novoIndice;
     if (direcao === 'prev') {
@@ -65,7 +42,6 @@ export const ProdutosDetalhes = () => {
     } else {
       novoIndice = imagemAtual < produto.imagens.length - 1 ? imagemAtual + 1 : 0;
     }
-
     setImagemAtual(novoIndice);
     setCorSelecionada(produto.cores[novoIndice].nome);
   };
@@ -91,33 +67,37 @@ export const ProdutosDetalhes = () => {
   return (
     <div className="produto-detalhes-container">
       <nav className="breadcrumb">
-        <a href="/">Home</a> / <a href="/produtos">Produtos</a> / <a href="/produtos">Tênis</a> / <a href="/produtos">Nike</a> / <span>{produto.nome}</span>
+        <a href="/">Home</a> / <a href="/produtos">Produtos</a> / <span>{produto.nome}</span>
       </nav>
 
       <div className="produto-content">
         <div className="produto-galeria">
           <div
             className="imagem-principal"
-            style={{ backgroundColor: `${corAtual}20` }}
+            style={{ backgroundColor: `${corAtual}20` }} 
           >
             <button
               className="nav-btn prev"
               onClick={() => navegarImagem('prev')}
               style={{ backgroundColor: `${corAtual}20`, borderColor: corAtual, color: corAtual }}
+              aria-label="Imagem anterior"
             >
               ‹
             </button>
+
             <img
               src={produto.imagens[imagemAtual]}
-              alt={produto.nome}
+              alt={`${produto.nome} - ${corSelecionada}`}
               onError={(e) => {
                 e.target.src = 'https://via.placeholder.com/400x300?text=Imagem+não+encontrada';
               }}
             />
+
             <button
               className="nav-btn next"
               onClick={() => navegarImagem('next')}
               style={{ backgroundColor: `${corAtual}20`, borderColor: corAtual, color: corAtual }}
+              aria-label="Próxima imagem"
             >
               ›
             </button>
@@ -130,6 +110,12 @@ export const ProdutosDetalhes = () => {
                 className={`miniatura ${index === imagemAtual ? 'ativa' : ''}`}
                 onClick={() => selecionarImagem(index)}
                 style={{ borderColor: index === imagemAtual ? produto.cores[index]?.hex : 'transparent' }}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') selecionarImagem(index);
+                }}
+                aria-label={`Selecionar imagem ${index + 1} - cor ${produto.cores[index].nome}`}
               >
                 <img
                   src={imagem}
@@ -150,16 +136,26 @@ export const ProdutosDetalhes = () => {
           <div className="avaliacao">
             <div className="estrelas">
               {[...Array(5)].map((_, i) => (
-                <span key={i} className="estrela">★</span>
+                <span
+                  key={i}
+                  className="estrela"
+                  style={{ color: i < Math.round(produto.avaliacao) ? '#ffc107' : '#ddd' }}
+                >
+                  ★
+                </span>
               ))}
-              <span className="nota">{produto.avaliacao}</span>
+              <span className="nota">{produto.avaliacao.toFixed(1)}</span>
             </div>
             <span className="numero-avaliacoes">({produto.numeroAvaliacoes} avaliações)</span>
           </div>
 
           <div className="preco">
-            <span className="preco-atual">R$ {produto.preco.toFixed(2).replace('.', ',')}</span>
-            <span className="preco-antigo">R$ {produto.precoAntigo.toFixed(2).replace('.', ',')}</span>
+            <span className="preco-atual">
+              R$ {produto.preco.toFixed(2).replace('.', ',')}
+            </span>
+            <span className="preco-antigo">
+              R$ {produto.precoAntigo.toFixed(2).replace('.', ',')}
+            </span>
           </div>
 
           <p className="descricao">{produto.descricao}</p>
@@ -173,6 +169,7 @@ export const ProdutosDetalhes = () => {
                     key={tamanho}
                     className={`tamanho-btn ${tamanhoSelecionado === tamanho ? 'selecionado' : ''}`}
                     onClick={() => setTamanhoSelecionado(tamanho)}
+                    aria-pressed={tamanhoSelecionado === tamanho}
                   >
                     {tamanho}
                   </button>
@@ -190,43 +187,36 @@ export const ProdutosDetalhes = () => {
                     style={{ backgroundColor: cor.hex }}
                     onClick={() => selecionarCor(cor.nome, index)}
                     title={cor.nome}
-                  ></button>
+                    aria-pressed={corSelecionada === cor.nome}
+                  />
                 ))}
               </div>
             </div>
           </div>
 
-          <button className="btn-adicionar">ADICIONAR</button>
+          <button
+            className="btn-adicionar"
+            onClick={() => {
+              if (!tamanhoSelecionado || !corSelecionada) {
+                alert("Por favor, selecione o tamanho e a cor!");
+                return;
+              }
+
+              adicionarAoCarrinho({
+                id,
+                nome: produto.nome,
+                preco: produto.preco,
+                imagem: produto.imagens[imagemAtual],
+                tamanho: tamanhoSelecionado,
+                cor: corSelecionada,
+                quantidade: 1,
+              });
+            }}
+          >
+            ADICIONAR
+          </button>
         </div>
       </div>
-
-      <section className="produtos-relacionados">
-        <div className="secao-header">
-          <h2>Produtos Relacionados</h2>
-          <a href="/produtos" className="ver-todos">Ver todos →</a>
-        </div>
-
-        <div className="produtos-relacionados-grid">
-          {produtosRelacionados.map((produto, index) => (
-            <div key={index} className="produto-relacionado">
-              {produto.desconto && <span className="desconto-badge">{produto.desconto}</span>}
-              <img
-                src={produto.imagem}
-                alt={produto.nome}
-                onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/200x150?text=Produto';
-                }}
-              />
-              <p className="categoria">Tênis</p>
-              <h3>{produto.nome}</h3>
-              <div className="preco-relacionado">
-                {produto.precoAntigo && <s>R$ {produto.precoAntigo.toFixed(2).replace('.', ',')}</s>}
-                <strong>R$ {produto.preco.toFixed(2).replace('.', ',')}</strong>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
     </div>
   );
 };
