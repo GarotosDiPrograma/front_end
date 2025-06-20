@@ -5,8 +5,18 @@ import { ShopCart } from '../ShopCart/ShopCart';
 import { UseFul } from '../UseFul/UseFul';
 import { Nav } from '../Nav/Nav';
 import './Header.css';
+import { NavLink } from 'react-router-dom';
 
 export const Header = () => {
+
+  const NavStyle = ({ isActive }) => {
+    return {
+      fontWeight: isActive && '700',
+      paddingBottom: isActive && '0.2rem',
+      borderBottom: isActive ? '3px solid #C92071' : 'inherit',
+      color: isActive ? '#C92071' : '#666',
+    }
+  };
 
   return (
     <>
@@ -37,32 +47,21 @@ export const Header = () => {
               height={'1.813rem'}
             >
               <li>
-                <UseFul
-                  value={'Inicio'}
-                  color={'#666'}
-                  to={'/'}
-                />
+                <NavLink style={NavStyle} to={'/'}>Inicio</NavLink>
               </li>
               <li>
-                <UseFul
-                  value={'Produtos'}
-                  color={'#666'}
-                  to={'/produtos'}
-                />
+                <NavLink style={NavStyle} to={'/produtos'}>Produtos</NavLink>
               </li>
               <li>
-                <UseFul
-                  value={'Meus Pedidos'}
-                  color={'#666'}
-                  to={'/pedidos'}
-                />
+                <NavLink style={NavStyle} to={'/pedidos'}>Pedidos</NavLink>
               </li>
               <li>
-                <UseFul
+                {/* <UseFul
                   value={'Ofertas'}
                   color={'#666'}
                   to={'/ofertas'}
-                />
+                /> */}
+                <NavLink style={NavStyle} to={'/ofertas'}>Ofertas</NavLink>
               </li>
             </Nav>
           </div>

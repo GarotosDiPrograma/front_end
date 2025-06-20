@@ -20,7 +20,7 @@ export const Carousel = () => {
         <>
             <Swiper
                 slidesPerView={1}
-                spaceBetween={30}
+                spaceBetween={0}
                 autoplay={{
                     delay: 4000,
                     disableOnInteraction: false,
@@ -29,7 +29,7 @@ export const Carousel = () => {
                 pagination={{
                     clickable: true
                 }}
-                navigation={true}
+                navigation={false}
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >

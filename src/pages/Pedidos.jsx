@@ -1,12 +1,23 @@
+import { Route, Routes, } from 'react-router-dom';
+
+import { MeusPedidos } from '../components/Mpedidos/MeusPedidos';
+
+import { MinhasInfor } from '../components/Mpedidos/MinhasInfor';
 
 import './Main.css'
 
 export const Pedidos = () => {
-  return(
+  return (
+
     <div className="main-container">
       <div className='main-box'>
-        <h1>pagina de Pedidos</h1>
+        <MeusPedidos />
+        <Routes>
+          <Route path='MinhasInfor' element={<MinhasInfor />} />
+        </Routes>
       </div>
     </div>
+
+
   );
 }

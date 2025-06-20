@@ -1,19 +1,16 @@
 .produtos-container {
   display: flex;
-  padding: 3rem 2rem;
-  gap: 2rem;
+  padding: 2rem 1rem;
   margin: 0 auto;
-  background-color: #f2f2f2;
+  max-width: 80rem;
+  background-color: #ffffff;
+  gap: 2rem;
   font-family: 'Arial', sans-serif;
 }
-
-
-
 
 .filtros {
   width: 13.75rem;
   padding-right: 1.5rem;
-  border-right: none;
   color: #474747;
 }
 
@@ -21,6 +18,9 @@
   font-size: 1.125rem;
   margin-bottom: 1rem;
   color: #474747;
+  text-align: left;
+  border-bottom: 1px solid #C92071;
+  padding-bottom: 0.5rem;
 }
 
 .filtros h4 {
@@ -29,34 +29,36 @@
   margin-bottom: 0.5rem;
   font-weight: bold;
   color: #474747;
-
+  text-align: left;
 }
-
 
 .filtros label {
   display: flex;
   align-items: center;
   font-size: 0.875rem;
   margin: 0.375rem 0;
-  gap: 0.625rem; 
+  gap: 0.625rem;
   cursor: pointer;
   color: #474747;
   position: relative;
 }
 
-
 .filtros input[type="checkbox"],
 .filtros input[type="radio"] {
   appearance: none;
-  width: 1.375rem;  
+  width: 1.375rem;
   height: 1.375rem;
   border: 1px solid #C92071;
-  margin: 0;
-  padding: 0;
   background: #fff;
-  display: inline-block;
   position: relative;
   cursor: pointer;
+}
+
+.filtros input[type="checkbox"]:focus,
+.filtros input[type="radio"]:focus,
+.topo-listagem select:focus {
+  outline: 2px solid #C92071;
+  outline-offset: 2px;
 }
 
 .filtros input[type="checkbox"] {
@@ -99,7 +101,9 @@
 }
 
 .produtos-lista {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: .7rem;
 }
 
 .topo-listagem {
@@ -109,27 +113,31 @@
   margin-bottom: 1.5rem;
 }
 
-
 .topo-listagem h2 {
   font-size: 1.125rem;
   font-weight: 500;
+  color: #474747;
 }
-
 
 .topo-listagem select {
-  padding: 0.375rem 0.75rem;
+  padding: 0.5rem 1rem;
   border-radius: 0.25rem;
-  border: 1px solid #aaa;
-  font-size: 0.875rem;
+  border: 0.0625rem solid #aaa;
+  font-size: 1rem;
+  width: 17rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.topo-listagem select:hover {
+  border: 0.125rem solid #C92071;
+  box-shadow: none;
+}
 
 .produtos-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 0.5rem;
 }
-
 
 .produto-card {
   position: relative;
@@ -139,18 +147,13 @@
   padding: 1rem;
   text-align: center;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
-
-
-
 
 .produto-card:hover {
   transform: translateY(-0.125rem);
   box-shadow: 0 0.25rem 1.125rem rgba(0, 0, 0, 0.08);
 }
-
-
-
 
 .desconto {
   position: absolute;
@@ -164,17 +167,11 @@
   border-radius: 0.75rem;
 }
 
-
-
-
 .produto-card img {
   max-width: 100%;
   height: auto;
   margin: 0.75rem 0;
 }
-
-
-
 
 .categoria {
   font-size: 0.8125rem;
@@ -183,9 +180,6 @@
   margin-bottom: 0.25rem;
 }
 
-
-
-
 .produto-card h3 {
   font-size: 1rem;
   font-weight: 500;
@@ -193,23 +187,35 @@
   color: #474747;
 }
 
-
-
-
 .produto-card p {
   font-size: 0.875rem;
   margin: 0;
 }
-
 
 .produto-card s {
   color: #aaa;
   margin-right: 0.25rem;
 }
 
-
 .produto-card strong {
-  color: #000;
+  color: #474747;
   font-weight: bold;
   font-size: 0.9375rem;
+}
+
+.produto-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.produto-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.produto-card .produto-link:visited {
+  color: inherit;
 }

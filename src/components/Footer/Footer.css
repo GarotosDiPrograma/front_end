@@ -1,6 +1,6 @@
 #footer {
   width: 100%;
-
+  background-color: #1F1F1F;
 }
 
 #footer .box-footer {
@@ -8,7 +8,6 @@
   width: 90rem;
   height: 28.375rem;
   margin: 0 auto;
-  background-color: #1F1F1F;
 }
 
 #footer .box-footer .content {

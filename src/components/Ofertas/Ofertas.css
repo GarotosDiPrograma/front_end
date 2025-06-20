@@ -1,0 +1,40 @@
+div .Produtos h2 {
+  color: #474747;
+  margin-bottom: 1rem;
+}
+
+div .Produtos a {
+  color: #C92071;
+  padding-right: 1.8rem;
+}
+
+.Produtos {
+  width: 90rem;
+  padding: 0 6.25rem 0 6.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.GridProdutos {
+  margin: 0 auto 2rem auto;
+  width: 90rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.produto-card {
+  position: relative;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.produto-card:hover {
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.25rem 1.125rem rgba(0, 0, 0, 0.08);
+}
