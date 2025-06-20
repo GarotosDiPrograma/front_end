@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom';
 import './Produtos.css';
+import { motion } from 'motion/react';
 import './Main.css';
 
 export const Produtos = () => {
   return (
+   <motion.div 
+   initial={{opacity: 0, x: 40}} 
+   animate={{opacity: 1, x:0}}
+   transition={{duration: 0.9}}
+    >
+
     <div className="main-container produtos-container">
       <aside className="filtros">
         <h3>Filtrar por</h3>
@@ -75,5 +82,6 @@ export const Produtos = () => {
         </div>
       </main>
     </div>
+    </motion.div>
   );
 };
